@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::API
 
- #this is a test
+ #a test
 end
