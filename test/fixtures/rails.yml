@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  g: MyString
+  migration: MyString
+  JwtBlacklist: MyString
+
+two:
+  g: MyString
+  migration: MyString
+  JwtBlacklist: MyString
