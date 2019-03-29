@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class Api::ApplicationController < ActionController::API
   # before_action :set_time_zone, if: :logged_in?
   #
   # check_authorization
