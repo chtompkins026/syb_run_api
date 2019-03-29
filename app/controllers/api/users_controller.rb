@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   before_action :set_lesson, only: [:new]
 
   def new
@@ -25,10 +25,10 @@ class UsersController < ApplicationController
         auto_login(@user)
         UserMailer.new_signup_booking_admin(@user, @booking).deliver_later
         UserMailer.new_signup_booking_client(@user, @booking).deliver_later
-        format.html { redirect_to dashboard_url, notice: 'Your account was successfully created.' }
+
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { redirect_back fallback_location: root_path, alert: 'An error occurred while sending this request.' }
+        
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
