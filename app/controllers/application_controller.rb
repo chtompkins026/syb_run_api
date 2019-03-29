@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  check_authorization
+  
   def render_resource(resource)
     if resource.errors.empty?
       render json: resource
