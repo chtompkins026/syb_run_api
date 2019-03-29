@@ -10,8 +10,9 @@ gem 'devise'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'ice_cube', '~> 0.16.3'
-#use this to handle scheduling 
+gem 'timezone', '~> 1.3', '>= 1.3.3'
+gem 'local_time'   
+#use this to handle scheduling
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
