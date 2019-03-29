@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  [...]
   before_action :set_lesson, only: [:new]
-def new
+
+  def new
     @account = Account.new
     @user = User.new
     @client = Client.new
@@ -9,7 +9,8 @@ def new
     @lesson_payment = LessonPayment.new
     @schedules = Schedule.where('start >= ? and start <=  ?', Date.today + 1.day, Date.today + 2.weeks).where(title: 'Available').order('start ASC').all
   end
-def create
+
+  def create
 # // I have not included the code for "create_client_charge" because you need to figure out how you will process the charge. I have left this here though because I wanted to show that I try to charge the user first because if the charge fails, I don't want anything else created.
     create_client_charge
     create_client_account
@@ -93,4 +94,4 @@ private
       @lesson_payment.save
     end
 
-end #end of the class 
+end #end of the class

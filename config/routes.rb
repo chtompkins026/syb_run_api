@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users,
+  root to: "home#index"
+
+  namespace :api do
+    resources :clients
+    resources :trainers
+    resources :users
+    resources :lessons
+
+    devise_for :users,
              path: '',
              path_names: {
                sign_in: 'login',
@@ -10,7 +18,8 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                registrations: 'registrations'
              }
-
-    root to: "home#index"
-
+  end #end of namespace for API 
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/login', to: 'sessions#destroy'
 end
