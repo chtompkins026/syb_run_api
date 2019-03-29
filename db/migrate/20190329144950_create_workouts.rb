@@ -6,6 +6,9 @@ class CreateWorkouts < ActiveRecord::Migration[5.2]
       t.integer :duration
       t.string :location
       t.text :description
+      t.string :image
+      t.integer :cost
+      t.string :level 
 
       t.timestamps
     end

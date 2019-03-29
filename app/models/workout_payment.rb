@@ -1,0 +1,2 @@
+class WorkoutPayment < ApplicationRecord
+end

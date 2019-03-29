@@ -10,7 +10,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_223121) do
+ActiveRecord::Schema.define(version: 2019_03_29_162544) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status"
+    t.string "title"
+    t.integer "cost"
+    t.datetime "start"
+    t.text "cancellation_reason"
+    t.boolean "refunded"
+    t.integer "instructor_id"
+    t.integer "schedule_id"
+    t.integer "workout_id"
+    t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_bookings_on_account_id"
+    t.index ["instructor_id"], name: "index_bookings_on_instructor_id"
+    t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
+    t.index ["workout_id"], name: "index_bookings_on_workout_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "photo"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "instagram"
+    t.integer "user_id"
+    t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_clients_on_account_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "photo"
+    t.text "email"
+    t.text "bio"
+    t.text "instagram"
+    t.string "experience"
+    t.integer "account_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jwt_blacklist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "instructor_id"
+    t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_schedules_on_account_id"
+    t.index ["instructor_id"], name: "index_schedules_on_instructor_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +95,33 @@ ActiveRecord::Schema.define(version: 2019_03_28_223121) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "workout_payments", force: :cascade do |t|
+    t.string "payment_number"
+    t.string "status"
+    t.date "date"
+    t.integer "cost"
+    t.string "service"
+    t.integer "booking_id"
+    t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_workout_payments_on_account_id"
+    t.index ["booking_id"], name: "index_workout_payments_on_booking_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "duration"
+    t.string "location"
+    t.text "description"
+    t.string "image"
+    t.integer "cost"
+    t.string "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
