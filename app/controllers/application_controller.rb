@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
-  before_action :set_time_zone, if: :logged_in?
-
-  check_authorization
+  # before_action :set_time_zone, if: :logged_in?
+  #
+  # check_authorization
 
   def render_resource(resource)
     if resource.errors.empty?
