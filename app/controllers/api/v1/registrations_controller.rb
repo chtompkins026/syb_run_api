@@ -1,4 +1,4 @@
-class Api::v1::RegistrationsController < Devise::RegistrationsController
+class Api::V1::RegistrationsController < Devise::RegistrationsController
   skip_before_action :doorkeeper_authorize!
 
   # POST /resource
@@ -23,8 +23,14 @@ class Api::v1::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  ...
+  private
 
-  protected
-  ...
+  # def sign_up_params
+  #   params.permit(:email, :password)
+  # end
+
+  # def account_update_params
+  #   params.require(:user).permit(:email, :user_name, :password, :password_confirmation, :current_password)
+  # end
+
 end

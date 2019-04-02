@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
 
       devise_for :users, controllers: {
-           registrations: 'api/v1/users/registrations',
+           registrations: 'api/v1/registrations',
        }, skip: [:sessions, :password]
     end
   end

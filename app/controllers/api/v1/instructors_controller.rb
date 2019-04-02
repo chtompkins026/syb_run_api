@@ -1,5 +1,5 @@
 class Api::InstructorsController < ApplicationController
-  before_action :set_trainer, only: [:show, :edit, :update, :destroy]
+  before_action :set_instructor, only: [:show, :edit, :update, :destroy]
 
   # GET /instructor
   # GET /instructor.json

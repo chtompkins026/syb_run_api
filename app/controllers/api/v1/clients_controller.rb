@@ -1,6 +1,7 @@
 class Api::ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
+
   # GET /clients
   # GET /clients.json
   def index
@@ -11,13 +12,20 @@ class Api::ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    respond_to do |format|
+      if @client
+        format.json { render :show, location: @client }
+      else
+        format.json { render json: @client.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
-  # GET /clients/new
-  def new
-    @client = Client.new
-    render json: @client
-  end
+  # # GET /clients/new
+  # def new
+  #   @client = Client.new
+  #   render json: @client
+  # end
 
   # GET /clients/1/edit
   def edit

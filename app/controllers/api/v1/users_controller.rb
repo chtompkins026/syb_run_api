@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::v1::UsersController < ApplicationController
   before_action :set_lesson, only: [:new]
 
   def new
@@ -44,7 +44,7 @@ private
     end
 
     def user_params
-     params.require(:user).permit(:email, :password, :time_zone)
+     params.require(:user).permit(:email, :password)
     end
 
     def create_client_account
