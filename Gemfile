@@ -4,14 +4,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+#for login <> logout 
 gem 'devise-jwt', '~> 0.5.8'
 gem 'devise'
+gem 'doorkeeper', '~> 5.0', '>= 5.0.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'timezone', '~> 1.3', '>= 1.3.3'
-gem 'local_time'   
+gem 'local_time'
 #use this to handle scheduling
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
