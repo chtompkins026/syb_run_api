@@ -11,6 +11,8 @@ class Api::InstructorsController < ApplicationController
   # GET /instructors/1
   # GET /instructors/1.json
   def show
+    @instructor = Instructor.find_by(id: params[:id])
+    render json: @instructor
   end
 
   # GET /instructors/new
