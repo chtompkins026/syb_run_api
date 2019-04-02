@@ -8,6 +8,8 @@ class Api::UsersController < ApplicationController
     @booking = Booking.new
     @lesson_payment = LessonPayment.new
     @schedules = Schedule.where('start >= ? and start <=  ?', Date.today + 1.day, Date.today + 2.weeks).where(title: 'Available').order('start ASC').all
+
+    render json: {user: @user.to_json, account: {a} }
   end
 
   def create
@@ -28,7 +30,7 @@ class Api::UsersController < ApplicationController
 
         format.json { render :show, status: :created, location: @user }
       else
-        
+
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
