@@ -1,4 +1,4 @@
-class Api::InstructorsController < ApplicationController
+class Api::V1::InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
 
   # GET /instructor

@@ -1,6 +1,5 @@
-class Api::ClientsController < ApplicationController
+class Api::V1::ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-
 
   # GET /clients
   # GET /clients.json
@@ -21,11 +20,11 @@ class Api::ClientsController < ApplicationController
     end
   end
 
-  # # GET /clients/new
-  # def new
-  #   @client = Client.new
-  #   render json: @client
-  # end
+  # GET /clients/new
+  def new
+    @client = Client.new
+    render json: @client
+  end
 
   # GET /clients/1/edit
   def edit
@@ -38,7 +37,7 @@ class Api::ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.json { render :show, status: :created, location: @client }
+        format.json { render json: @client, status: :created, location: @client }
       else
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end

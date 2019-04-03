@@ -16,7 +16,7 @@ class Instructor < ApplicationRecord
   has_many :schedules, dependent: :destroy, :inverse_of => :instructor
   accepts_nested_attributes_for :schedules
 
-  mount_uploader :photo, TrainerUploader
+  # mount_uploader :photo, TrainerUploader
 
   def name
     "#{first_name} #{last_name}"
