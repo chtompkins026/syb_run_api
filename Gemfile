@@ -5,7 +5,10 @@ ruby '2.3.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-#for login <> logout 
+# faker gem for fake data/ testing
+gem 'faker', '~> 1.6', '>= 1.6.6'
+
+#for login <> logout
 gem 'devise-jwt', '~> 0.5.8'
 gem 'devise'
 gem 'doorkeeper', '~> 5.0', '>= 5.0.2'
