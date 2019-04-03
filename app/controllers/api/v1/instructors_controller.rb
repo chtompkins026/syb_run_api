@@ -4,7 +4,7 @@ class Api::V1::InstructorsController < ApplicationController
   # GET /instructor
   # GET /instructor.json
   def index
-    @instructors = Instructors.all
+    @instructors = Instructor.all
     render json: @instructors
   end
 
@@ -32,7 +32,7 @@ class Api::V1::InstructorsController < ApplicationController
 
     respond_to do |format|
       if @instructor.save
-        format.json { render :show, status: :created, location: @instructor }
+        format.json { render json: @instructor, status: :created, location: @instructor }
       else
         format.json { render json: @instructor.errors, status: :unprocessable_entity }
       end
@@ -44,7 +44,7 @@ class Api::V1::InstructorsController < ApplicationController
   def update
     respond_to do |format|
       if @instructor.update(instructor_params)
-        format.json { render :show, status: :ok, location: @instructor }
+        format.json { render json: @instructor, status: :ok, location: @instructor }
       else
         format.json { render json: @instructor.errors, status: :unprocessable_entity }
       end

@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   scope module: :api, defaults: { format: :json }, path: 'api' do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
 
-      resources :clients
-      resources :instructors
+      resources :clients, :instructors
 
       devise_for :users, controllers: {
            registrations: 'api/v1/registrations',
