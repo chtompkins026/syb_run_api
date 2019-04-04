@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_153407) do
+ActiveRecord::Schema.define(version: 2019_04_04_154710) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 2019_04_04_153407) do
     t.integer "workout_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["instructor_id"], name: "index_bookings_on_instructor_id"
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["workout_id"], name: "index_bookings_on_workout_id"
   end
 
@@ -137,7 +139,9 @@ ActiveRecord::Schema.define(version: 2019_04_04_153407) do
     t.integer "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["booking_id"], name: "index_workout_payments_on_booking_id"
+    t.index ["user_id"], name: "index_workout_payments_on_user_id"
   end
 
   create_table "workouts", force: :cascade do |t|
