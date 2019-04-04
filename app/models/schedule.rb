@@ -3,6 +3,9 @@ class Schedule < ApplicationRecord
   # belongs_to :account #:inverse_of => :schedules
   # accepts_nested_attributes_for :account
 
+  belongs_to :workout
+  accepts_nested_attributes_for :workout
+
   belongs_to :instructor #, :inverse_of => :schedules
   accepts_nested_attributes_for :instructor
 

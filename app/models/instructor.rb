@@ -6,15 +6,16 @@ class Instructor < ApplicationRecord
   belongs_to :user #, :inverse_of => :instructor
   accepts_nested_attributes_for :user
 
-  has_many :bookings #, dependent: :destroy, :inverse_of => :instructor
-  accepts_nested_attributes_for :bookings
+  has_many :schedules #, dependent: :destroy, :inverse_of => :instructor
+  accepts_nested_attributes_for :schedules
 
-  has_many :workouts, :through => :bookings
+  has_many :bookings, :through => :schedules #, dependent: :destroy, :inverse_of => :instructor
+  accepts_nested_attributes_for :bookings
 
   has_many :lesson_payments, :through => :bookings
 
-  has_many :schedules, dependent: :destroy #, :inverse_of => :instructor
-  accepts_nested_attributes_for :schedules
+  # has_many :schedules, dependent: :destroy #, :inverse_of => :instructor
+  # accepts_nested_attributes_for :schedules
 
   # mount_uploader :photo, TrainerUploader
 

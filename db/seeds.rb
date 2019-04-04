@@ -30,19 +30,19 @@ instructor_array = [instructor_user1, instructor_user2, instructor_user3, instru
 #creating clients
 10.times do
   client_user = User.create!({password:'password1', email:Faker::Internet.email, account_type:1})
-  user_account = Account.create!
+
   1.times do
     Client.create!({first_name:Faker::Name.name,last_name: Faker::Superhero.name,
       phone:Faker::PhoneNumber.cell_phone, instagram:Faker::FunnyName.name,
-      user_id: client_user.id, account_id: user_account.id})
+      user_id: client_user.id})
   end
 end
 
 #creating Instructors
 
   instructor_array.each do |instructor|
-    instructor_account = Account.create!
+    # instructor_account = Account.create!
     Instructor.create!({first_name:Faker::Name.name,last_name: Faker::Superhero.name,
     email: instructor.email, bio: Faker::ChuckNorris.fact, instagram: Faker::FunnyName.name,
-      experience: '3 years', user_id: instructor.id, account_id: instructor_account.id})
+      experience: '3 years', user_id: instructor.id})
   end
