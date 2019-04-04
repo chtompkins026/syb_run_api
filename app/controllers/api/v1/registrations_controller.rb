@@ -20,7 +20,8 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
        if resource.active_for_authentication?
          # set_flash_message! :notice, :signed_up
          sign_up(resource_name, resource)
-         respond_with resource, location: after_sign_up_path_for(resource)
+
+         render json: resource
        else
          set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
          expire_data_after_sign_in!
@@ -131,9 +132,9 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
      self.resource = send(:"current_#{resource_name}")
    end
 
-   def sign_up_params
-     devise_parameter_sanitizer.sanitize(:sign_up)
-   end
+   # def sign_up_params
+   #   devise_parameter_sanitizer.sanitize(:sign_up)
+   # end
 
    def account_update_params
      devise_parameter_sanitizer.sanitize(:account_update)
@@ -151,10 +152,10 @@ private
 
      Devise.sign_in_after_change_password
    end
-  #
-  # def sign_up_params
-  #   params.permit(:email, :password)
-  # end
+
+  def sign_up_params
+    params.permit(:email, :password)
+  end
 
   def account_update_params
     params.require(:user).permit(:email, :password, :password_confirmation, :current_password)

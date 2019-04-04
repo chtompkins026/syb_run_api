@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::API
   # Devise code
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  #Doorkeeper code 
   before_action :doorkeeper_authorize!
   respond_to :json
 
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  # note, account type 1 = client, 2 = instructor, 3 = admin 
+  # note, account type 1 = client, 2 = instructor, 3 = admin
   private
 
   # Doorkeeper methods

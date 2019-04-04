@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   use_doorkeeper do
     # No need to register client application
-    skip_controllers :applications
+    skip_controllers :applications, :authorized_applications
     # :authorized_applications
   end
 

@@ -1,7 +1,7 @@
 class Client < ApplicationRecord
   # Tenant Of
-  belongs_to :account
-  accepts_nested_attributes_for :account
+  # belongs_to :account
+  # accepts_nested_attributes_for :account
 
   belongs_to :user#, :inverse_of => :clients
   accepts_nested_attributes_for :user

@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_144000) do
-
-  create_table "accounts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_04_04_153407) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
@@ -27,10 +22,8 @@ ActiveRecord::Schema.define(version: 2019_04_03_144000) do
     t.integer "instructor_id"
     t.integer "schedule_id"
     t.integer "workout_id"
-    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_bookings_on_account_id"
     t.index ["instructor_id"], name: "index_bookings_on_instructor_id"
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
     t.index ["workout_id"], name: "index_bookings_on_workout_id"
@@ -43,10 +36,8 @@ ActiveRecord::Schema.define(version: 2019_04_03_144000) do
     t.string "phone"
     t.string "instagram"
     t.integer "user_id"
-    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_clients_on_account_id"
     t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
@@ -58,7 +49,6 @@ ActiveRecord::Schema.define(version: 2019_04_03_144000) do
     t.text "bio"
     t.text "instagram"
     t.string "experience"
-    t.integer "account_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,10 +106,8 @@ ActiveRecord::Schema.define(version: 2019_04_03_144000) do
     t.datetime "start"
     t.datetime "end"
     t.integer "instructor_id"
-    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_schedules_on_account_id"
     t.index ["instructor_id"], name: "index_schedules_on_instructor_id"
   end
 
@@ -147,10 +135,8 @@ ActiveRecord::Schema.define(version: 2019_04_03_144000) do
     t.integer "cost"
     t.string "service"
     t.integer "booking_id"
-    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_workout_payments_on_account_id"
     t.index ["booking_id"], name: "index_workout_payments_on_booking_id"
   end
 

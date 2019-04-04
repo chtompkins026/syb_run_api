@@ -1,6 +1,9 @@
 class Booking < ApplicationRecord
-  belongs_to :account #:inverse_of => :bookings
-  accepts_nested_attributes_for :account
+  # belongs_to :account #:inverse_of => :bookings
+  # accepts_nested_attributes_for :account
+  
+  belongs_to :user #:inverse_of => :bookings
+  accepts_nested_attributes_for :user
 
   belongs_to :workout #, :inverse_of => :bookings
   accepts_nested_attributes_for :workout
