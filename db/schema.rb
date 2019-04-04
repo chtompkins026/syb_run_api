@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_154710) do
+ActiveRecord::Schema.define(version: 2019_04_04_172549) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_154710) do
     t.integer "instructor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "workout_id"
     t.index ["instructor_id"], name: "index_schedules_on_instructor_id"
   end
 

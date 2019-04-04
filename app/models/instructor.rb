@@ -9,10 +9,10 @@ class Instructor < ApplicationRecord
   has_many :schedules #, dependent: :destroy, :inverse_of => :instructor
   accepts_nested_attributes_for :schedules
 
-  has_many :bookings, :through => :schedules #, dependent: :destroy, :inverse_of => :instructor
+  has_many :bookings, through: :schedules #, dependent: :destroy, :inverse_of => :instructor
   accepts_nested_attributes_for :bookings
 
-  has_many :lesson_payments, :through => :bookings
+  has_many :lesson_payments, through: :bookings
 
   # has_many :schedules, dependent: :destroy #, :inverse_of => :instructor
   # accepts_nested_attributes_for :schedules

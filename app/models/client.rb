@@ -6,12 +6,12 @@ class Client < ApplicationRecord
   belongs_to :user#, :inverse_of => :clients
   accepts_nested_attributes_for :user
 
-  has_many :bookings, dependent: :destroy #, :inverse_of => :client
+  has_many :bookings #, :inverse_of => :client
   accepts_nested_attributes_for :bookings
 
-  has_many :workouts, :through => :bookings
+  has_many :workouts, through: :bookings
 
-  has_many :lesson_payments, :through => :bookings
+  has_many :lesson_payments, through: :bookings
 
   # mount_uploader :photo, ClientUploader
 

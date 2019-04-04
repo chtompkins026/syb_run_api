@@ -6,19 +6,16 @@ class Booking < ApplicationRecord
   accepts_nested_attributes_for :user
 
   belongs_to :schedule #, :inverse_of => :bookings
-  accepts_nested_attributes_for :schedule
 
-  belongs_to :workout, :through => :schedules #, :inverse_of => :bookings
-  accepts_nested_attributes_for :workout
+  belongs_to :workout #, :inverse_of => :bookings
 
-  belongs_to :instructor, :through => :schedules #:inverse_of => :bookings
+  belongs_to :instructor #:inverse_of => :bookings
   accepts_nested_attributes_for :instructor
 
   belongs_to :client # :inverse_of => :bookings
   accepts_nested_attributes_for :client
 
-  has_many :lesson_payments, dependent: :destroy, :inverse_of => :booking
-  accepts_nested_attributes_for :lesson_payments
+  has_many :lesson_payments
 
   validates :schedule_id, presence: true
 end

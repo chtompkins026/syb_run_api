@@ -9,6 +9,7 @@
 require 'faker'
 
 Booking.destroy_all
+Schedule.destroy_all
 User.destroy_all
 Instructor.destroy_all
 Workout.destroy_all
@@ -39,10 +40,16 @@ instructor_array = [instructor_user1, instructor_user2, instructor_user3, instru
 end
 
 #creating Instructors
-
   instructor_array.each do |instructor|
     # instructor_account = Account.create!
     Instructor.create!({first_name:Faker::Name.name,last_name: Faker::Superhero.name,
     email: instructor.email, bio: Faker::ChuckNorris.fact, instagram: Faker::FunnyName.name,
       experience: '3 years', user_id: instructor.id})
   end
+
+
+  date1 = DateTime.new(2019, 4, 29, 22, 35, 0)
+
+#creating Workouts
+   workout1 = Workout.create!({name: Faker::Name.name, duration: 55, location: "New York", description: "Sweat your tits off", cost:30, level:"Novice"})
+   schedule1 = Schedule.create!({title: workout1.name, start: date1, end: date1.change(hour: 1), instructor_id: Instructor.first.id, workout_id: workout1.id})
