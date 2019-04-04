@@ -8,6 +8,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 # faker gem for fake data/ testing
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
+## allow access from other sites
+gem 'rack-cors', '~> 0.4.0'
+
 #for login <> logout
 gem 'devise-jwt', '~> 0.5.8'
 gem 'devise'

@@ -7,6 +7,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     resource.save
     if resource.persisted?
       if resource.active_for_authentication?
+        login(resource)
         # set_flash_message! :notice, :signed_up
         # To avoid login comment out sign_up method
         # sign_up(resource_name, resource)
@@ -25,9 +26,9 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  # def sign_up_params
-  #   params.permit(:email, :password)
-  # end
+  def sign_up_params
+    params.permit(:email, :password)
+  end
 
   # def account_update_params
   #   params.require(:user).permit(:email, :user_name, :password, :password_confirmation, :current_password)
