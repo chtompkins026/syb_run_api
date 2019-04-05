@@ -5,12 +5,13 @@
   # GET /workouts.json
   def index
     @workouts = Workout.all
-    render json:@workouts
+    render json: @workouts
   end
 
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    render json: @workout
   end
 
   # GET /workouts/new
@@ -27,12 +28,10 @@
   # POST /workouts.json
   def create
     @workout = Workout.new(workout_params)
-
-    respond_to do |format|
       if @workout.save
-        format.json { render json: @workout }
+        render json: @workout
       else
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
+        render json: @workout.errors
       end
     end
   end
@@ -40,12 +39,10 @@
   # PATCH/PUT /workouts/1
   # PATCH/PUT /workouts/1.json
   def update
-    respond_to do |format|
-      if @workout.update(workout_params)
-        format.json { render json: @workout  }
-      else
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
+    if @workout.update(workout_params)
+      render json: @workout
+    else
+      render json: @workout.errors
     end
   end
 
@@ -53,9 +50,6 @@
   # DELETE /workouts/1.json
   def destroy
     @workout.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
   end
 
   private
