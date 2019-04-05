@@ -15,7 +15,7 @@ class Booking < ApplicationRecord
   belongs_to :client # :inverse_of => :bookings
   accepts_nested_attributes_for :client
 
-  has_many :lesson_payments
+  has_many :workout_payments
 
   validates :schedule_id, presence: true
 end
