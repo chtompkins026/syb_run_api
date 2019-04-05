@@ -1,58 +1,58 @@
-class Api::WorkoutsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  class Api::V1::WorkoutsController < ApplicationController
+  before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
-  # GET /lessons
-  # GET /lessons.json
+  # GET /workouts
+  # GET /workouts.json
   def index
     @workouts = Workout.all
     render json:@workouts
   end
 
-  # GET /lessons/1
-  # GET /lessons/1.json
+  # GET /workouts/1
+  # GET /workouts/1.json
   def show
   end
 
-  # GET /lessons/new
+  # GET /workouts/new
   def new
-    @lesson = Lesson.new
-    render json:@lesson
+    @workout = Workout.new
+    render json: @workout
   end
 
-  # GET /lessons/1/edit
+  # GET /workouts/1/edit
   def edit
   end
 
-  # POST /lessons
-  # POST /lessons.json
+  # POST /workouts
+  # POST /workouts.json
   def create
-    @lesson = Lesson.new(lesson_params)
+    @workout = Workout.new(workout_params)
 
     respond_to do |format|
-      if @lesson.save
-        format.json { render :show, status: :created, location: @lesson }
+      if @workout.save
+        format.json { render json: @workout }
       else
-        format.json { render json: @lesson.errors, status: :unprocessable_entity }
+        format.json { render json: @workout.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /lessons/1
-  # PATCH/PUT /lessons/1.json
+  # PATCH/PUT /workouts/1
+  # PATCH/PUT /workouts/1.json
   def update
     respond_to do |format|
-      if @lesson.update(lesson_params)
-        format.json { render :show, status: :ok, location: @lesson }
+      if @workout.update(workout_params)
+        format.json { render json: @workout  }
       else
-        format.json { render json: @lesson.errors, status: :unprocessable_entity }
+        format.json { render json: @workout.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /lessons/1
-  # DELETE /lessons/1.json
+  # DELETE /workouts/1
+  # DELETE /workouts/1.json
   def destroy
-    @lesson.destroy
+    @workout.destroy
     respond_to do |format|
       format.json { head :no_content }
     end
@@ -60,12 +60,12 @@ class Api::WorkoutsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_lesson
-      @lesson = Lesson.find(params[:id])
+    def set_workout
+      @workout = Workout.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def lesson_params
-      params.require(:lesson).permit(:image, :title, :duration, :cost, :category, :language, :level, :description)
+    def workout_params
+      params.require(:workout).permit(:name, :type, :duration, :location, :description, :image, :cost, :level)
     end
 end
