@@ -3,5 +3,6 @@ class UserSerializer < ActiveModel::Serializer
    :confirmation_sent_at, :unconfirmed_email, :created_at, :updated_at,
    :encrypted_password, :reset_password_token
 
-   
+   has_many :workout_payments
+
 end
