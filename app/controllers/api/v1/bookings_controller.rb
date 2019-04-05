@@ -19,7 +19,7 @@ class Api::V1::BookingsController < ApplicationController
 
     # GET /bookings/new
     def new
-      @booking = Instructor.new
+      @booking = Booking.new
       render json: @booking
     end
 
@@ -45,7 +45,7 @@ class Api::V1::BookingsController < ApplicationController
     # PATCH/PUT /bookings/1.json
     def update
       respond_to do |format|
-        if @booking.update(instructor_params)
+        if @booking.update(booking  _params)
           format.json { render json: @booking, status: :ok, location: @booking }
         else
           format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class Api::V1::BookingsController < ApplicationController
 
 private
   # Never trust parameters from the scary internet, only allow the white list through.
-  def instructor_params
+  def booking_params
     params.require(:booking).permit(:status, :title, :cost, :start, :cancellation_reason, :refunded, :instructor_id,
       :schedule_id, :workout_id, :created_at, :updated_at, :user_id)
   end
