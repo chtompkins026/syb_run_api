@@ -13,7 +13,6 @@ class Api::V1::InstructorsController < ApplicationController
   # GET /instructors/1
   # GET /instructors/1.json
   def show
-    @instructor = Instructor.find_by(id: params[:id])
     render json: @instructor
   end
 
@@ -31,25 +30,20 @@ class Api::V1::InstructorsController < ApplicationController
   # POST /instructors.json
   def create
     @instructor = Instructor.new(trainer_params)
-
-    respond_to do |format|
       if @instructor.save
-        format.json { render json: @instructor, status: :created, location: @instructor }
+        render json: @instructor
       else
-        format.json { render json: @instructor.errors, status: :unprocessable_entity }
+        render json: @instructor.errors
       end
-    end
   end
 
   # PATCH/PUT /instructors/1
   # PATCH/PUT /instructors/1.json
   def update
-    respond_to do |format|
-      if @instructor.update(instructor_params)
-        format.json { render json: @instructor, status: :ok, location: @instructor }
-      else
-        format.json { render json: @instructor.errors, status: :unprocessable_entity }
-      end
+    if @instructor.update(instructor_params)
+      render json: @instructor
+    else
+      render json: @instructor.errors
     end
   end
 
@@ -57,9 +51,6 @@ class Api::V1::InstructorsController < ApplicationController
   # DELETE /instructors/1.json
   def destroy
     @instructor.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
   end
 
   private
