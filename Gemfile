@@ -5,6 +5,7 @@ ruby '2.3.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'active_model_serializers', '~> 0.10.0'
 # faker gem for fake data/ testing
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
