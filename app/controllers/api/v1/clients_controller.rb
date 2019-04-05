@@ -11,12 +11,10 @@ class Api::V1::ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
-    respond_to do |format|
-      if @client
-        format.json { render :show, location: @client }
-      else
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+    if @client
+      render json: @client
+    else
+      render json: @client.errors
     end
   end
 
@@ -34,25 +32,20 @@ class Api::V1::ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
-
-    respond_to do |format|
       if @client.save
-        format.json { render json: @client, status: :created, location: @client }
+        render json: @client
       else
-        format.json { render json: @client.errors, status: :unprocessable_entity }
+        render json: @client.errors
       end
-    end
   end
 
   # PATCH/PUT /clients/1
   # PATCH/PUT /clients/1.json
   def update
-    respond_to do |format|
-      if @client.update(client_params)
-        format.json { render :show, status: :ok, location: @client }
-      else
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+    if @client.update(client_params)
+      render json: @client
+    else
+      render json: @client.errors
     end
   end
 
@@ -60,9 +53,6 @@ class Api::V1::ClientsController < ApplicationController
   # DELETE /clients/1.json
   def destroy
     @client.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
   end
 
   private

@@ -1,4 +1,8 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
+  include ActionController::Cookies
+  include ActionController::RequestForgeryProtection
+  before_action :set_csrf_cookie
+
   skip_before_action :doorkeeper_authorize!
   prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
@@ -159,6 +163,10 @@ private
 
   def account_update_params
     params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
+  end
+
+  def set_csrf_cookie
+    cookies["CSRF-TOKEN"] = form_authenticity_token
   end
 
 end
