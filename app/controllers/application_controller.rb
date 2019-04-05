@@ -29,5 +29,6 @@ class ApplicationController < ActionController::API
 
   def set_csrf_cookie
     cookies["CSRF-TOKEN"] = form_authenticity_token
+    # raise cookies["CSRF-TOKEN"].inspect 
   end
 end
