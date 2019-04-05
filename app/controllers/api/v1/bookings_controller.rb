@@ -1,14 +1,8 @@
 class Api::V1::BookingsController < ApplicationController
-  before_action :set_user
 
   def index
-    if @user.nil?
       @bookings = Booking.all
       render json: @bookings
-    else
-      @bookings = @user.bookings
-      render json: @bookings
-    end
   end
 
   # GET /bookings/1.json
@@ -45,7 +39,7 @@ class Api::V1::BookingsController < ApplicationController
     # PATCH/PUT /bookings/1.json
     def update
       respond_to do |format|
-        if @booking.update(booking  _params)
+        if @booking.update(booking_params)
           format.json { render json: @booking, status: :ok, location: @booking }
         else
           format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -69,8 +63,8 @@ private
       :schedule_id, :workout_id, :created_at, :updated_at, :user_id)
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
 end
