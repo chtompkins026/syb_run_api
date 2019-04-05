@@ -5,7 +5,7 @@ class Api::V1::InstructorsController < ApplicationController
   # GET /instructor.json
   def index
     @instructors = Instructor.all
-    render json: @instructors
+    render json: @instructors.to_json
   end
 
   # GET /instructors/1
