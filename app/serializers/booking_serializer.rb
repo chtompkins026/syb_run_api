@@ -6,5 +6,5 @@ class BookingSerializer < ActiveModel::Serializer
   belongs_to :user
   belongs_to :instructor
   belongs_to :client
-  has_many :lesson_payments
+  has_many :workout_payments
 end
