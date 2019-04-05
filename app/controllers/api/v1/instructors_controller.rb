@@ -5,7 +5,9 @@ class Api::V1::InstructorsController < ApplicationController
   # GET /instructor.json
   def index
     @instructors = Instructor.all
-    render json: @instructors.to_json
+    # render json: @instructors.to_json
+    render json: @instructors.to_json(only: [:first_name, :last_name, :photo, :email, :bio, :instagram, :experience, :user_id],
+                          include: [schedules: { only: [:title, :start, :end, :instructor_id, :workout_id]}])
   end
 
   # GET /instructors/1
