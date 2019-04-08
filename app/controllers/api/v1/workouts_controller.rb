@@ -33,7 +33,6 @@
       else
         render json: @workout.errors
       end
-    end
   end
 
   # PATCH/PUT /workouts/1

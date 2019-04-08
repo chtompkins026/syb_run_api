@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
   before_action :set_csrf_cookie
 
   #Doorkeeper code
-  before_action :doorkeeper_authorize!
+  # before_action :doorkeeper_authorize!
   respond_to :json
 
   protected
@@ -29,6 +29,6 @@ class ApplicationController < ActionController::API
 
   def set_csrf_cookie
     cookies["CSRF-TOKEN"] = form_authenticity_token
-    # raise cookies["CSRF-TOKEN"].inspect 
+    # raise cookies["CSRF-TOKEN"].inspect
   end
 end
