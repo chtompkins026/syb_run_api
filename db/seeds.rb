@@ -105,6 +105,19 @@ end
     #Creating Fake Bookings
 
     #Workout 1
-    booking1 = Booking.create!({status: "confirmed", title:"booking", cost: workout1.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, workout_id: schedule1.workout_id, user_id: User.first.id})
-    booking2 = Booking.create!({status: "confirmed", title:"booking", cost: workout1.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, workout_id: schedule2.workout_id, user_id: User.second.id})
-    booking3 = Booking.create!({status: "confirmed", title:"booking", cost: workout1.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, workout_id: schedule1.workout_id, user_id: User.first.id})
+    booking1 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, client_id: Client.first.id})
+    booking2 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, client_id: Client.first.id})
+    booking3 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, client_id: Client.second.id})
+    booking4 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, client_id: Client.second.id})
+
+    #Workout 2
+    booking5 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule11.start, instructor_id: schedule11.instructor_id, schedule_id: schedule11.id, client_id: Client.third.id})
+    booking6 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule21.start, instructor_id: schedule21.instructor_id, schedule_id: schedule21.id, client_id: Client.third.id})
+    booking7 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule11.start, instructor_id: schedule11.instructor_id, schedule_id: schedule11.id, client_id: Client.fourth.id})
+    booking8 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule21.start, instructor_id: schedule21.instructor_id, schedule_id: schedule21.id, client_id: Client.fourth.id})
+
+    #Workout 3
+    booking9 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule12.start, instructor_id: schedule12.instructor_id, schedule_id: schedule12.id, client_id: Client.fifth.id})
+    booking10 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule22.start, instructor_id: schedule22.instructor_id, schedule_id: schedule22.id, client_id: Client.fifth.id})
+    booking11 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule12.start, instructor_id: schedule12.instructor_id, schedule_id: schedule12.id, client_id: Client.last.id})
+    booking12 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule22.start, instructor_id: schedule22.instructor_id, schedule_id: schedule22.id, client_id: Client.last.id})
