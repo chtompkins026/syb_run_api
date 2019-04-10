@@ -52,7 +52,7 @@ private
   # Never trust parameters from the scary internet, only allow the white list through.
   def booking_params
     params.permit(:status, :title, :cost, :start, :cancellation_reason, :refunded, :instructor_id,
-      :schedule_id, :workout_id, :created_at, :updated_at, :user_id)
+      :schedule_id, :created_at, :updated_at, :client_id)
   end
 
   def set_booking
