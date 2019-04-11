@@ -61,6 +61,6 @@ class Api::V1::InstructorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
-      params.require(:instructor).permit(:photo, :first_name, :last_name, :phone, :email, :bio, :instagram, :experience, :user_id, :account_id)
+      params.permit(:photo, :first_name, :last_name, :phone, :email, :bio, :instagram, :experience, :user_id, :account_id)
     end
 end

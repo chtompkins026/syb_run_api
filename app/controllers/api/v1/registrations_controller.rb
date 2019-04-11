@@ -3,7 +3,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   include ActionController::RequestForgeryProtection
   before_action :set_csrf_cookie
 
-  skip_before_action :doorkeeper_authorize!
+  # skip_before_action :doorkeeper_authorize!
   prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
   prepend_before_action :set_minimum_password_length, only: [:new, :edit]

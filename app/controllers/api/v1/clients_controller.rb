@@ -63,6 +63,6 @@ class Api::V1::ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:photo, :first_name, :last_name, :phone, :instagram, :user_id, :account_id)
+      params.permit(:photo, :first_name, :last_name, :phone, :instagram, :user_id, :account_id)
     end
 end
