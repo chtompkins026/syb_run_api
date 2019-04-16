@@ -6,7 +6,7 @@ class Api::V1::InstructorsController < ApplicationController
   def index
     @instructors = Instructor.all
     # render json: @instructors.to_json
-    render json: @instructors.to_json(only: [:first_name, :last_name, :photo, :email, :bio, :instagram, :experience, :user_id],
+    render json: @instructors.to_json(only: [:first_name, :last_name, :region, :photo, :email, :bio, :instagram, :experience, :user_id],
                           include: [schedules: { only: [:title, :start, :end, :instructor_id, :workout_id]}])
   end
 
@@ -61,6 +61,6 @@ class Api::V1::InstructorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
-      params.permit(:photo, :first_name, :last_name, :phone, :email, :bio, :instagram, :experience, :user_id, :account_id)
+      params.permit(:photo, :first_name, :last_name, :region, :phone, :email, :bio, :instagram, :experience, :user_id, :account_id)
     end
 end
