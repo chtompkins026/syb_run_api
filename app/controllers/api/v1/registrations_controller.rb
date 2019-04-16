@@ -162,7 +162,7 @@ private
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
+    params.permit(:email, :password, :password_confirmation, :current_password)
   end
 
   def set_csrf_cookie

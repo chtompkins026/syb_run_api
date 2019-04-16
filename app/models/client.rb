@@ -6,6 +6,8 @@ class Client < ApplicationRecord
   # belongs_to :user#, :inverse_of => :clients
   # accepts_nested_attributes_for :user
 
+  belongs_to :user
+  
   has_many :bookings #, :inverse_of => :client
   accepts_nested_attributes_for :bookings
 

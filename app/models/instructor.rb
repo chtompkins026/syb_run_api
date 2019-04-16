@@ -3,9 +3,6 @@ class Instructor < ApplicationRecord
   # belongs_to :account
   # accepts_nested_attributes_for :account
 
-  belongs_to :user #, :inverse_of => :instructor
-  accepts_nested_attributes_for :user
-
   has_many :schedules #, dependent: :destroy, :inverse_of => :instructor
   accepts_nested_attributes_for :schedules
 
