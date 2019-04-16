@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_142543) do
+ActiveRecord::Schema.define(version: 2019_04_16_195129) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_142543) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "region"
   end
 
   create_table "jwt_blacklist", force: :cascade do |t|
@@ -123,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_142543) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "account_type"
+    t.integer "account_type", default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -146,7 +147,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_142543) do
     t.string "name"
     t.string "type"
     t.integer "duration"
-    t.string "location"
+    t.string "region"
     t.text "description"
     t.string "image"
     t.integer "cost"
