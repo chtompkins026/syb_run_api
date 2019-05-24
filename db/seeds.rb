@@ -52,83 +52,77 @@ end
   end
 
   # for Workout 1 Test
-  date1 = DateTime.new(2019, 5, 22, 10, 00, 00)
-  date2 = DateTime.new(2019, 5, 22, 12, 00, 00)
-  date3 = DateTime.new(2019, 5, 22, 18, 00, 00)
+  date_array1 = []
+  8.upto(20) do |i|
+    date = DateTime.new(2019, 5, 24, i, 00, 00)
+    date_array1 << date
+  end
 
   # for workout 2 test
-  date4 = DateTime.new(2019, 5, 23, 8, 00, 00)
-  date5 = DateTime.new(2019, 5, 23, 9, 00, 00)
-  date6 = DateTime.new(2019, 5, 23, 9, 00, 00)
+  date_array2 = []
+
+  8.upto(20) do |i|
+    date = DateTime.new(2019, 5, 25, i, 00, 00)
+    date_array2 << date
+  end
 
   # for workout3 test
+  date_array3 = []
 
-  date7 = DateTime.new(2019, 5, 24, 12, 00, 00)
-  date8 = DateTime.new(2019, 5, 24, 13, 00, 00)
-  date9 = DateTime.new(2019, 5, 24, 14, 00, 00)
+  8.upto(20) do |i|
+    date = DateTime.new(2019, 5, 26, i, 00, 00)
+    date_array3 << date
+  end
+
 
 
 #creating Workouts
    workout1 = Workout.create!({name: "Burn Class", duration: 55, region: "Boston", description: "Burn 1000 Calories in 45 minutes", cost:30, level:"Novice"})
-     schedule1 = Schedule.create!({title: workout1.name, start: date1, end: date1.change(hour: 1), instructor_id: Instructor.first.id, workout_id: workout1.id})
-     schedule2 = Schedule.create!({title: workout1.name, start: date1.change(hour: 2), end: date1.change(hour: 3), instructor_id: Instructor.first.id, workout_id: workout1.id})
-     schedule3 = Schedule.create!({title: workout1.name, start: date1.change(hour: 4), end: date1.change(hour: 5), instructor_id: Instructor.first.id, workout_id: workout1.id})
-     schedule4 = Schedule.create!({title: workout1.name, start: date2, end: date2.change(hour: 1), instructor_id: Instructor.first.id, workout_id: workout1.id})
-    #  schedule5 = Schedule.create!({title: workout1.name, start: date2.change(hour: 5), end: date2.change(hour: 6), instructor_id: Instructor.first.id, workout_id: workout1.id})
-    #  schedule6 = Schedule.create!({title: workout1.name, start: date2.change(hour: 4), end: date2.change(hour: 5), instructor_id: Instructor.first.id, workout_id: workout1.id})
-    #  schedule7 = Schedule.create!({title: workout1.name, start: date3, end: date3.change(hour: 1), instructor_id: Instructor.first.id, workout_id: workout1.id})
-    #  schedule8 = Schedule.create!({title: workout1.name, start: date3.change(hour: 2), end: date3.change(hour: 3), instructor_id: Instructor.first.id, workout_id: workout1.id})
-    #  schedule9 = Schedule.create!({title: workout1.name, start: date3.change(hour: 4), end: date3.change(hour: 5), instructor_id: Instructor.first.id, workout_id: workout1.id})
-    #  schedule10 = Schedule.create!({title: workout1.name, start: date3.change(hour: 6), end: date3.change(hour: 7), instructor_id: Instructor.first.id, workout_id: workout1.id})
+     schedule1 = Schedule.create!({title: workout1.name, start: date_array1[0], end: date_array1[1], instructor_id: Instructor.first.id, workout_id: workout1.id})
+     schedule2 = Schedule.create!({title: workout1.name, start: date_array1[2], end: date_array1[3], instructor_id: Instructor.first.id, workout_id: workout1.id})
+     schedule3 = Schedule.create!({title: workout1.name, start: date_array1[4], end: date_array1[5], instructor_id: Instructor.first.id, workout_id: workout1.id})
+     schedule4 = Schedule.create!({title: workout1.name, start: date_array1[8], end: date_array1[9], instructor_id: Instructor.first.id, workout_id: workout1.id})
+     schedule5 = Schedule.create!({title: workout1.name, start: date_array1[10], end: date_array1[11], instructor_id: Instructor.first.id, workout_id: workout1.id})
 
 
     workout2 = Workout.create!({name: "Crossfit", duration: 55, region: "New York", description: "High Intensity Movement", cost:30, level:"Intermediate"})
-      schedule11 = Schedule.create!({title: workout2.name, start: date4, end: date4.change(hour: 1), instructor_id: Instructor.first.id, workout_id: workout2.id})
-      schedule21 = Schedule.create!({title: workout2.name, start: date4.change(hour: 2), end: date4.change(hour: 3), instructor_id: Instructor.second.id, workout_id: workout2.id})
-      # schedule31 = Schedule.create!({title: workout2.name, start: date4.change(hour: 4), end: date4.change(hour: 5), instructor_id: Instructor.second.id, workout_id: workout2.id})
-      # schedule41 = Schedule.create!({title: workout2.name, start: date5, end: date5.change(hour: 1), instructor_id: Instructor.second.id, workout_id: workout2.id})
-      # schedule51 = Schedule.create!({title: workout2.name, start: date5.change(hour: 3), end: date5.change(hour: 4), instructor_id: Instructor.first.id, workout_id: workout2.id})
-      # schedule61 = Schedule.create!({title: workout2.name, start: date5.change(hour: 5), end: date5.change(hour: 6), instructor_id: Instructor.first.id, workout_id: workout2.id})
-      # schedule71 = Schedule.create!({title: workout2.name, start: date6, end: date6.change(hour: 1), instructor_id: Instructor.first.id, workout_id: workout2.id})
-      # schedule81 = Schedule.create!({title: workout2.name, start: date6.change(hour: 2), end: date6.change(hour: 3), instructor_id: Instructor.third.id, workout_id: workout2.id})
-      # schedule91 = Schedule.create!({title: workout2.name, start: date6.change(hour: 4), end: date6.change(hour: 5), instructor_id: Instructor.third.id, workout_id: workout2.id})
-      # schedule101 = Schedule.create!({title: workout2.name, start: date6.change(hour: 6), end: date6.change(hour: 7), instructor_id: Instructor.third.id, workout_id: workout2.id})
+      schedule11 = Schedule.create!({title: workout2.name, start: date_array2[0], end: date_array2[1], instructor_id: Instructor.first.id, workout_id: workout2.id})
+      schedule21 = Schedule.create!({title: workout2.name, start: date_array2[2], end: date_array2[3], instructor_id: Instructor.second.id, workout_id: workout2.id})
+      schedule31 = Schedule.create!({title: workout2.name, start: date_array2[4], end: date_array2[5], instructor_id: Instructor.second.id, workout_id: workout2.id})
+      schedule41 = Schedule.create!({title: workout2.name, start: date_array2[8], end: date_array2[9], instructor_id: Instructor.second.id, workout_id: workout2.id})
+      schedule51 = Schedule.create!({title: workout2.name, start: date_array2[10], end: date_array2[11], instructor_id: Instructor.first.id, workout_id: workout2.id})
 
     workout3 = Workout.create!({name: "Tonehouse Workout", duration: 55, region: "San Francisco", description: "Intensive Cardio Class Designed To Get You In Shape", cost:30, level:"Advanced"})
-      schedule12 = Schedule.create!({title: workout3.name, start: date7, end: date7.change(hour: 1), instructor_id: Instructor.fourth.id, workout_id: workout3.id})
-      # schedule22 = Schedule.create!({title: workout3.name, start: date7.change(hour: 2), end: date7.change(hour: 3), instructor_id: Instructor.fourth.id, workout_id: workout3.id})
-      # schedule32 = Schedule.create!({title: workout3.name, start: date7.change(hour: 4), end: date7.change(hour: 5), instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      # schedule42 = Schedule.create!({title: workout3.name, start: date8, end: date8.change(hour: 1), instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      # schedule52 = Schedule.create!({title: workout3.name, start: date8.change(hour: 2), end: date8.change(hour: 3), instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      # schedule62 = Schedule.create!({title: workout3.name, start: date8.change(hour: 4), end: date8.change(hour: 5), instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      # schedule72 = Schedule.create!({title: workout3.name, start: date9, end: date9.change(hour: 1), instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      # schedule82 = Schedule.create!({title: workout3.name, start: date9.change(hour: 2), end: date9.change(hour: 3), instructor_id: Instructor.last.id, workout_id: workout3.id})
-      # schedule92 = Schedule.create!({title: workout3.name, start: date9.change(hour: 4), end: date9.change(hour: 5), instructor_id: Instructor.last.id, workout_id: workout3.id})
-      # schedule102 = Schedule.create!({title: workout3.name, start: date9.change(hour: 6), end: date9.change(hour: 7), instructor_id: Instructor.last.id, workout_id: workout3.id})
+      schedule12 = Schedule.create!({title: workout3.name, start: date_array2[0], end: date_array2[1], instructor_id: Instructor.fourth.id, workout_id: workout3.id})
+      schedule22 = Schedule.create!({title: workout3.name, start: date_array2[2], end: date_array2[3], instructor_id: Instructor.fourth.id, workout_id: workout3.id})
+      schedule32 = Schedule.create!({title: workout3.name, start: date_array2[4], end: date_array2[5], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
+      schedule42 = Schedule.create!({title: workout3.name, start: date_array2[8], end: date_array2[9], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
+      schedule52 = Schedule.create!({title: workout3.name, start: date_array2[10], end: date_array2[11], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
+
 
     #Creating Fake Bookings
-     client1 = client_array[0]
-     client2 = client_array[1]
-     client3 = client_array[2]
-     client4 = client_array[3]
-     client5 = client_array[4]
-     client6 = client_array[5]
+     # client1 = client_array[0]
+     # client2 = client_array[1]
+     # client3 = client_array[2]
+     # client4 = client_array[3]
+     # client5 = client_array[4]
+     # client6 = client_array[5]
 
-
-    #Workout 1
-    booking1 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, client_id: client1.id})
-    booking2 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, client_id: client1.id})
-    booking3 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, client_id: client2.id})
-    booking4 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, client_id: client2.id})
-
-    #Workout 2
-    booking5 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule11.start, instructor_id: schedule11.instructor_id, schedule_id: schedule11.id, client_id: client3.id})
-    booking6 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule21.start, instructor_id: schedule21.instructor_id, schedule_id: schedule21.id, client_id: client3.id})
-    booking7 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule11.start, instructor_id: schedule11.instructor_id, schedule_id: schedule11.id, client_id: client4.id})
-    booking8 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule21.start, instructor_id: schedule21.instructor_id, schedule_id: schedule21.id, client_id: client4.id})
-
-    #Workout 3
-    booking9 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule12.start, instructor_id: schedule12.instructor_id, schedule_id: schedule12.id, client_id: client5.id})
-    # booking10 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule22.start, instructor_id: schedule22.instructor_id, schedule_id: schedule22.id, client_id: client5.id})
-    # booking11 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule12.start, instructor_id: schedule12.instructor_id, schedule_id: schedule12.id, client_id: client6.id})
-    # booking12 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule22.start, instructor_id: schedule22.instructor_id, schedule_id: schedule22.id, client_id: client6.id})
+    #
+    # #Workout 1
+    # booking1 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, client_id: client1.id})
+    # booking2 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, client_id: client1.id})
+    # booking3 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule1.start, instructor_id: schedule1.instructor_id, schedule_id: schedule1.id, client_id: client2.id})
+    # booking4 = Booking.create!({status: "confirmed", title:"booking", cost: Workout.first.cost, start: schedule2.start, instructor_id: schedule2.instructor_id, schedule_id: schedule2.id, client_id: client2.id})
+    #
+    # #Workout 2
+    # booking5 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule11.start, instructor_id: schedule11.instructor_id, schedule_id: schedule11.id, client_id: client3.id})
+    # booking6 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule21.start, instructor_id: schedule21.instructor_id, schedule_id: schedule21.id, client_id: client3.id})
+    # booking7 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule11.start, instructor_id: schedule11.instructor_id, schedule_id: schedule11.id, client_id: client4.id})
+    # booking8 = Booking.create!({status: "confirmed", title:"booking", cost: workout2.cost, start: schedule21.start, instructor_id: schedule21.instructor_id, schedule_id: schedule21.id, client_id: client4.id})
+    #
+    # #Workout 3
+    # booking9 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule12.start, instructor_id: schedule12.instructor_id, schedule_id: schedule12.id, client_id: client5.id})
+    # # booking10 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule22.start, instructor_id: schedule22.instructor_id, schedule_id: schedule22.id, client_id: client5.id})
+    # # booking11 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule12.start, instructor_id: schedule12.instructor_id, schedule_id: schedule12.id, client_id: client6.id})
+    # # booking12 = Booking.create!({status: "confirmed", title:"booking", cost: workout3.cost, start: schedule22.start, instructor_id: schedule22.instructor_id, schedule_id: schedule22.id, client_id: client6.id})
