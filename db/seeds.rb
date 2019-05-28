@@ -93,11 +93,11 @@ end
       schedule51 = Schedule.create!({title: workout2.name, start: date_array2[10], end: date_array2[11], instructor_id: Instructor.first.id, workout_id: workout2.id})
 
     workout3 = Workout.create!({name: "Tonehouse Workout", duration: 55, region: "San Francisco", description: "Intensive Cardio Class Designed To Get You In Shape", cost:30, level:"Advanced"})
-      schedule12 = Schedule.create!({title: workout3.name, start: date_array2[0], end: date_array2[1], instructor_id: Instructor.fourth.id, workout_id: workout3.id})
-      schedule22 = Schedule.create!({title: workout3.name, start: date_array2[2], end: date_array2[3], instructor_id: Instructor.fourth.id, workout_id: workout3.id})
-      schedule32 = Schedule.create!({title: workout3.name, start: date_array2[4], end: date_array2[5], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      schedule42 = Schedule.create!({title: workout3.name, start: date_array2[8], end: date_array2[9], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
-      schedule52 = Schedule.create!({title: workout3.name, start: date_array2[10], end: date_array2[11], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
+      schedule12 = Schedule.create!({title: workout3.name, start: date_array3[0], end: date_array3[1], instructor_id: Instructor.fourth.id, workout_id: workout3.id})
+      schedule22 = Schedule.create!({title: workout3.name, start: date_array3[2], end: date_array3[3], instructor_id: Instructor.fourth.id, workout_id: workout3.id})
+      schedule32 = Schedule.create!({title: workout3.name, start: date_array3[4], end: date_array3[5], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
+      schedule42 = Schedule.create!({title: workout3.name, start: date_array3[8], end: date_array3[9], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
+      schedule52 = Schedule.create!({title: workout3.name, start: date_array3[10], end: date_array3[11], instructor_id: Instructor.fifth.id, workout_id: workout3.id})
 
 
     #Creating Fake Bookings
