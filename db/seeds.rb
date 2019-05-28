@@ -54,7 +54,7 @@ end
   # for Workout 1 Test
   date_array1 = []
   8.upto(20) do |i|
-    date = DateTime.new(2019, 5, 24, i, 00, 00)
+    date = DateTime.new(2019, 5, 28, i, 00, 00)
     date_array1 << date
   end
 
@@ -62,7 +62,7 @@ end
   date_array2 = []
 
   8.upto(20) do |i|
-    date = DateTime.new(2019, 5, 25, i, 00, 00)
+    date = DateTime.new(2019, 5, 29, i, 00, 00)
     date_array2 << date
   end
 
@@ -70,7 +70,7 @@ end
   date_array3 = []
 
   8.upto(20) do |i|
-    date = DateTime.new(2019, 5, 26, i, 00, 00)
+    date = DateTime.new(2019, 5, 30, i, 00, 00)
     date_array3 << date
   end
 
