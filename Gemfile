@@ -11,7 +11,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
 ## allow access from other sites
-gem 'rack-cors', '~> 0.4.0'
+gem 'rack-cors', '~> 1.0.5'
 
 #for login <> logout
 gem 'devise-jwt', '~> 0.5.8'
