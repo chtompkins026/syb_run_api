@@ -25,7 +25,7 @@ gem 'timezone', '~> 1.3', '>= 1.3.3'
 gem 'local_time'
 #use this to handle scheduling
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
