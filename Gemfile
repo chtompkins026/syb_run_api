@@ -16,7 +16,7 @@ gem 'rack-cors', '~> 0.4.0'
 #for login <> logout
 gem 'devise-jwt', '~> 0.5.8'
 gem 'devise'
-gem 'doorkeeper', '~> 5.0', '>= 5.0.2'
+gem 'doorkeeper', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
